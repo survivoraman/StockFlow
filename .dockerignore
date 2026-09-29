@@ -1,0 +1,6 @@
+.env
+data/
+SS/
+node_modules/
+Sale Sheet.xlsx
+Stock Sheet.xlsx

@@ -1,0 +1,12 @@
+{
+  "name": "stockflow",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/calculations.test.mjs",
+    "lint": "node --check server.js && node --check src/app.js && node --check src/calculations.js",
+    "build": "node --check server.js && node --check src/app.js && node --check src/calculations.js"
+  }
+}

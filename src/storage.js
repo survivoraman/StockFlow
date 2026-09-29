@@ -1,0 +1,3 @@
+const DB='stockflow-cache', STORE='state';
+export async function load(){return new Promise(resolve=>{const r=indexedDB.open(DB,1);r.onupgradeneeded=()=>r.result.createObjectStore(STORE);r.onsuccess=()=>{const q=r.result.transaction(STORE).objectStore(STORE).get('app');q.onsuccess=()=>resolve(q.result||{});q.onerror=()=>resolve({})};r.onerror=()=>resolve({})})}
+export async function save(value){return new Promise(resolve=>{const r=indexedDB.open(DB,1);r.onupgradeneeded=()=>r.result.createObjectStore(STORE);r.onsuccess=()=>{const t=r.result.transaction(STORE,'readwrite');t.objectStore(STORE).put(value,'app');t.oncomplete=resolve;t.onerror=resolve};r.onerror=resolve})}
